@@ -26,7 +26,7 @@ class EmbedVideoNodeTestCase(TestCase):
                 {{ ytb|embed:'large' }}
             {% endvideo %}
         """)
-        rendered = u'<iframe width="960" height="720" src="http://www.youtube.com/embed/jsrRJyHBvzw?wmode=opaque" frameborder="0" allowfullscreen></iframe>'
+        rendered = '<iframe width="960" height="720" src="http://www.youtube.com/embed/jsrRJyHBvzw?wmode=opaque" frameborder="0" allowfullscreen></iframe>'
 
         self.assertEqual(template.render(self._grc()).strip(), rendered)
 
@@ -35,7 +35,7 @@ class EmbedVideoNodeTestCase(TestCase):
             {% load embed_video_tags %}
             {{ 'http://www.youtube.com/watch?v=jsrRJyHBvzw'|embed:'large' }}
         """)
-        rendered = u'<iframe width="960" height="720" src="http://www.youtube.com/embed/jsrRJyHBvzw?wmode=opaque" frameborder="0" allowfullscreen></iframe>'
+        rendered = '<iframe width="960" height="720" src="http://www.youtube.com/embed/jsrRJyHBvzw?wmode=opaque" frameborder="0" allowfullscreen></iframe>'
 
         self.assertEqual(template.render(self._grc()).strip(), rendered)
 
@@ -46,7 +46,7 @@ class EmbedVideoNodeTestCase(TestCase):
                 {{ ytb|embed:'800x800' }}
             {% endvideo %}
         """)
-        rendered = u'<iframe width="800" height="800" src="http://www.youtube.com/embed/jsrRJyHBvzw?wmode=opaque" frameborder="0" allowfullscreen></iframe>'
+        rendered = '<iframe width="800" height="800" src="http://www.youtube.com/embed/jsrRJyHBvzw?wmode=opaque" frameborder="0" allowfullscreen></iframe>'
 
         self.assertEqual(template.render(self._grc()).strip(), rendered)
 
@@ -114,7 +114,7 @@ class EmbedVideoNodeTestCase(TestCase):
         self.token.split_contents.return_value = (
             'video', 'http://youtu.be/v/1234', 'as', 'myvideo'
         )
-        self.parser.compile_filter.return_value = u'some_url'
+        self.parser.compile_filter.return_value = 'some_url'
 
         node = VideoNode(self.parser, self.token)
         self.assertEqual(str(node), '<VideoNode "some_url">')

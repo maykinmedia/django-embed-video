@@ -42,9 +42,9 @@ class EmbedVideoFormField(forms.URLField):
             try:
                 detect_backend(url)
             except UnknownBackendException:
-                raise forms.ValidationError(_(u'URL could not be recognized.'))
+                raise forms.ValidationError(_('URL could not be recognized.'))
             except UnknownIdException:
-                raise forms.ValidationError(_(u'ID of this video could not be \
+                raise forms.ValidationError(_('ID of this video could not be \
                                                 recognized.'))
 
         return url
